@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="news"
+            type="com.example.retrofittest.model.remote.datamodel.News" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                tools:src="@drawable/news"
+                android:id="@+id/img"
+                android:scaleType="fitXY"
+                loadImage="@{news.image}"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@id/img"
+                android:layout_centerHorizontal="true"
+                tools:text="title"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@{news.title}"
+                android:id="@+id/txt"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:text="@{news.description}"
+                android:layout_marginTop="5dp"
+                android:id="@+id/txt2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:text="@{@string/author_text(news.author)}"
+                android:layout_below="@id/txt2"
+                android:id="@+id/txt3"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/text_color"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/txt3"
+                android:text="@{@string/date_text(news.published.replace(` +0000`,``))}"/>
+        </RelativeLayout>
+    </ScrollView>
+</layout>
