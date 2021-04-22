@@ -28,8 +28,6 @@ class ListViewModel(
     fun messageReceived() {
         _message.value = null
     }
-
-    fun getSearchHint() = "دنبال چی هستی؟"
 }
 
 class ListViewModelFactory(
